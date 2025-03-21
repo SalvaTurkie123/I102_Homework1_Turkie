@@ -1,2 +1,2 @@
 # I102_Homework1_Turkie
-
+ Para compilar un ejercicio, debes entrar a la carpeta del ejercicio con el comando 'cd ej1' por ejemplo, luego ejecutar el comando 'make' y se compilará y ejecutará el ejercicio.
