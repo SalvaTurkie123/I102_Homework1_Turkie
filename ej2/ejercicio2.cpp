@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <stdexcept>  // Para manejar excepciones
 
 // Enumeración para los niveles de severidad
 enum SeverityLevel {
@@ -40,6 +41,11 @@ void logError(const std::string& message, const std::string& file, int line) {
 // Función para loggear accesos de usuario
 void logSecurity(const std::string& message, const std::string& username) {
     logMessage("Usuario: " + username + " - " + message, SECURITY);
+}
+
+// Función que simula un error en runtime
+void simulateRuntimeError() {
+    throw std::runtime_error("¡Error crítico detectado en runtime!");
 }
 
 int main() {
@@ -88,9 +94,14 @@ int main() {
                 logError(mensaje, archivo, linea);
                 break;
             case 9:
-                logMessage("Error crítico detectado en runtime", CRITICAL);
-                std::cerr << "Error en runtime. Terminando ejecución..." << std::endl;
-                return 1;
+                try {
+                    simulateRuntimeError();
+                } catch (const std::exception& e) {
+                    logMessage(e.what(), CRITICAL);
+                    std::cerr << "Se capturó un error en runtime: " << e.what() << std::endl;
+                    return 1;
+                }
+                break;
             default:
                 std::cout << "Opción no válida." << std::endl;
         }
