@@ -3,7 +3,6 @@
 #include <string>
 #include <stdexcept>  // Para manejar excepciones
 
-// Enumeración para los niveles de severidad
 enum SeverityLevel {
     DEBUG, INFO, WARNING, ERROR, CRITICAL, SECURITY, CUSTOM
 };

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-// Función para generar la matriz
+// Genero la matriz
 vector<vector<int>> generarMatriz(int n) {
     vector<vector<int>> matriz(n, vector<int>(n));
     int valor = 1;
@@ -31,7 +31,7 @@ void imprimirMatrizDescendente(const vector<vector<int>>& matriz) {
     // Ordenar en orden descendente
     sort(elementos.rbegin(), elementos.rend());
 
-    // Imprimir los valores con sus índices
+    // Imprimir los valores
     for (const auto& elem : elementos) {
         cout << "M_" << n << "[" << elem.second.first << "][" << elem.second.second << "] = " << elem.first << endl;
     }
